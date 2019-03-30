@@ -66,14 +66,14 @@ void loop() {
 // Trace tracking main function
 void Trace_Tracking()
 {
-  if(DIST_PAUSE(GET_DISTANCE()) == true){
+  /*if(DIST_PAUSE(GET_DISTANCE()) == true){
     BRAKE();
     return;
-  }
+  }*/
   
   digitalWrite(TCRT_LED, HIGH);    // Turning ON LED
   delayMicroseconds(500);  //wait
-  READ_PIN();
+  READ_TRACE();
   int now_C = DECISION(GET_COMMAND());
   if(now_C == 0){
     // Brake
@@ -216,7 +216,7 @@ void change_speed(int s)
 void turn(int angle, int ms)
 {
   if(angle < 30 || angle > 150)
-      break;
+      return;
   servo1.write(angle);
   pos = angle;
   delay(ms);
