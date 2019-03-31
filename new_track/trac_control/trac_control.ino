@@ -131,9 +131,11 @@ void loop() {
             if(dir == "w")
                 FORWARD();
             else if(dir == "a")
-                turn(75,1000);
+                turn(45,1000);
             else if(dir == "d")
-                turn(120,1000);
+                turn(135,1000);
+            else if(dir == "s")
+                BRAKE();
         }
     }
   }
